@@ -1,0 +1,15 @@
+- hosts: localhost
+  user: root
+  tasks:
+# requires >>> ansible-galaxy collection install kubernetes.core
+   - name: Get the cluster infrastructure information
+     kubernetes.core.k8s_info:
+       api_version: config.openshift.io/v1
+       kind: Infrastructure
+       name: cluster
+     register: k8_info
+
+   - name: Report
+     debug:
+       msg: "{{ k8_info }}"
+
