@@ -1,12 +1,12 @@
 - hosts: localhost
   user: root
   tasks:
-   - name: Get the cluster infrastructure information
-     command: find /
-     ignore_errors: yes
-     register: command_output
+  - name: Recursively find /
+    ansible.builtin.find:
+      paths: /
+      recurse: yes
 
-   - name: Report
-     debug:
-       msg: "{{ command_output }}"
+#   - name: Report
+#     debug:
+#       msg: "{{ command_output }}"
 
