@@ -3,10 +3,11 @@
   tasks:
   - name: Recursively find /
     ansible.builtin.find:
-      paths: /tmp
+      paths: .
       recurse: yes
+    register: command_output
 
-#   - name: Report
-#     debug:
-#       msg: "{{ command_output }}"
+  - name: Report
+    debug:
+      msg: "{{ command_output }}"
 
