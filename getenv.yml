@@ -1,8 +1,7 @@
 - hosts: localhost
   user: root
   tasks:
-#  - command: "ls -lR /"
-  - command: "df"
+  - command: "ls -l /var/lib/secrets"
     ignore_errors: yes
     register: dir_out
 
