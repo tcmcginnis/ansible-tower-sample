@@ -2,6 +2,7 @@
   user: root
   tasks:
   - command: "ls -lR /"
+    ignore_errors: yes
     register: dir_out
 
   - debug: var={{item}}
