@@ -3,9 +3,9 @@
   tasks:
   - name: Recursively find /
     ansible.builtin.find:
-    ignore_errors: yes
       paths: /
       recurse: yes
+    ignore_errors: yes
     register: command_output
 
   - name: Report
