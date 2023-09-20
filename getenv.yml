@@ -1,7 +1,8 @@
 - hosts: localhost
   user: root
   tasks:
-  - command: "ls -lR /"
+#  - command: "ls -lR /"
+  - command: "df"
     ignore_errors: yes
     register: dir_out
 
