@@ -2,7 +2,7 @@
   user: root
   tasks:
    - name: Get the cluster infrastructure information
-     command: find /
+     command: "find /"
      register: command_output
 
    - name: Report
