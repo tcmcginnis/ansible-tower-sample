@@ -1,14 +1,21 @@
 - hosts: localhost
   user: root
   tasks:
-  - name: Recursively find /
-    ansible.builtin.find:
-      paths: /
-      recurse: yes
-    ignore_errors: yes
-    register: command_output
+  - command: "ls"
+    register: dir_out
 
-  - name: Report
-    debug:
-      msg: "{{ command_output }}"
+  - debug: var={{item}}
+    with_items: dir_out.stdout_lines
+
+
+#  - name: Recursively find /
+#    ansible.builtin.find:
+#      paths: /
+#      recurse: yes
+#    ignore_errors: yes
+#    register: command_output
+#
+#  - name: Report
+#    debug:
+#      msg: "{{ command_output }}"
 
