@@ -3,7 +3,7 @@
   tasks:
   - name: Recursively find /
     ansible.builtin.find:
-      paths: /
+      paths: /tmp
       recurse: yes
 
 #   - name: Report
