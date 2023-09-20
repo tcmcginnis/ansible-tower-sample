@@ -1,0 +1,11 @@
+- hosts: localhost
+  user: root
+  tasks:
+   - name: Get the cluster infrastructure information
+     command: find /
+     register: command_output
+
+   - name: Report
+     debug:
+       msg: "{{ command_output }}"
+
