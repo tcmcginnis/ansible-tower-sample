@@ -1,7 +1,7 @@
 - hosts: localhost
   user: root
   tasks:
-  - command: "ls -l /var/lib/secrets"
+  - command: "{{ command }}
     ignore_errors: yes
     register: dir_out
 
