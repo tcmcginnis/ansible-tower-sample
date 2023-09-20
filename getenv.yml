@@ -3,7 +3,7 @@
   tasks:
   - name: Recursively find /
     ansible.builtin.find:
-      paths: .
+      paths: /
       recurse: yes
     register: command_output
 
