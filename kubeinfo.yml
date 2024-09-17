@@ -27,6 +27,7 @@
 
    - name: Get a list of all nodes
      kubernetes.core.k8s_info:
+       kubeconfig: .kubeconfig
        kind: node
      register: node_list
    - name: Report all
@@ -35,6 +36,7 @@
 
 #   - name: Get a list of all pods from any namespace
 #     kubernetes.core.k8s_info:
+#       kubeconfig: .kubeconfig
 #       kind: Pod
 #       namespace: aap
 #       field_selectors:
