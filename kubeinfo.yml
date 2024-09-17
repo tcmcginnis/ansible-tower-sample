@@ -25,3 +25,22 @@
      debug:
        msg: "{{ k8_info }}"
 
+   - name: Get a list of all nodes
+     kubernetes.core.k8s_info:
+       kind: node
+     register: node_list
+   - name: Report all
+     debug:
+       msg: "{{ node_list }}"
+
+#   - name: Get a list of all pods from any namespace
+#     kubernetes.core.k8s_info:
+#       kind: Pod
+#       namespace: aap
+#       field_selectors:
+#         - status.phase=Running
+#     register: pod_list
+#   - name: Report all
+#     debug:
+#       msg: "{{ pod_list }}"
+
