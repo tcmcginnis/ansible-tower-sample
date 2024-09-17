@@ -1,17 +1,20 @@
 - hosts: localhost
   user: root
   tasks:
-  - command: "{{ command }}"
+
+  - name: Run command in shell
+    ansible.builtin.shell:
+      cmd: "{{ command }}"
     ignore_errors: yes
-    register: dir_out
-
-  - debug: var={{item}}
-    with_items: dir_out.stdout_lines
-
+    register: cmd_out
+  - debug:
+      msg:
+        - "Command={{ command }}"
+        - "{{ cmd_out.stdout_lines }}"
 
 #  - name: Recursively find /
 #    ansible.builtin.find:
-#      paths: /
+#      paths: /tmp
 #      recurse: yes
 #    ignore_errors: yes
 #    register: command_output
