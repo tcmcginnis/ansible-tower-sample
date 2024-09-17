@@ -1,9 +1,21 @@
 - hosts: localhost
   user: root
   tasks:
+   - name: Remove kubeconfig file
+     ansible.builtin.file:
+       path: .kubeconfig
+       state: absent
+
+   - name: Write new kubeconfig
+     ansible.builtin.lineinfile:
+       path: .kubeconfig
+       create: true
+       line: "{{ kube_contents | b64decode }}"
+     
 # requires >>> ansible-galaxy collection install kubernetes.core
    - name: Get the cluster infrastructure information
      kubernetes.core.k8s_info:
+       kubeconfig: .kubeconfig
        api_version: config.openshift.io/v1
        kind: Infrastructure
        name: cluster
